@@ -1,0 +1,48 @@
+[
+  {
+    "id": "test-kernel",
+    "description": "Building test library",
+    "steps": [
+      {
+        "type": "read",
+        "src": "config/conf.json",
+        "variable": "FILES"
+      },
+      {
+        "type": "parse",
+        "data": "%FILES%",
+        "parseTo": "json",
+        "path": "test-kernel/files",
+        "variable": "FILES"
+      },
+      {
+        "type": "test",
+        "files": "%FILES%"
+      }
+    ]
+  },
+  {
+    "id": "build-kernel",
+    "description": "Building kernel Flux",
+    "steps": [
+      {
+        "type": "read",
+        "src": "config/conf.json",
+        "variable": "FILES"
+      },
+      {
+        "type": "parse",
+        "data": "%FILES%",
+        "parseTo": "json",
+        "path": "kernel/files",
+        "variable": "FILES"
+      },
+      {
+        "type": "browserify",
+        "files": "%FILES%",
+        "dest_dir": "kernelFlux/dist",
+        "dest_name": "OneFlux.js"
+      }
+    ]
+  }
+]

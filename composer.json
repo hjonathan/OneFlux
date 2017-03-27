@@ -1,0 +1,7 @@
+{
+  "name": "colosa/pmdashboards",
+  "description": "platform for building dashboard & widgets based in Gridastack for the manage of layouts in JavaScript (JS)",
+  "keywords": ["js lib ProcessMaker UI dashbboard"],
+  "homepage": "http://processmaker.com",
+  "license": ""
+}

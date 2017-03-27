@@ -1,0 +1,116 @@
+{
+  "test-kernel": {
+    "files": [
+      "kernelFlux/test/Store.test.js",
+      "kernelFlux/test/ComponentBase.test.js",
+      "kernelFlux/test/ContainerBase.test.js",
+      "kernelFlux/test/ActionBus.test.js"
+    ]
+  },
+  "kernel": {
+    "files": [
+      "kernelFlux/src/OneFlux.js"
+    ]
+  },
+  "example": {
+    "filesCSS": [
+      "example/src/core/css/PMDashboard.css",
+      "implements/src/core/css/Widget.css",
+      "example/src/boxes/boxMenu/BoxMenu.css",
+      "example/src/boxes/boxSettings/BoxSettings.css",
+      "example/src/boxes/boxButtons/BoxButtons.css",
+      "implements/src/boxes/boxWidgetSettings/BoxWidgetSettings.css",
+      "example/src/boxes/boxHeader/BoxHeader.css",
+      "example/src/boxes/boxDashboard/BoxDashboard.css",
+      "example/src/elements/menuElement/MenuElement.css",
+      "example/src/elements/buttonElement/ButtonElement.css",
+      "implements/src/elements/settingWidgetElement/SettingWidgetElement.css",
+      "implements/src/widgets/datatableWidget/Datatable.css"
+    ],
+    "filesJS": [
+      "example/src/data/MenuItems.js",
+      "example/src/data/buttonsItems.js",
+      "example/src/data/widgetsItems.js",
+      "example/src/core/PMDashboard.js",
+      "implements/src/core/Dashboard.js",
+      "implements/src/boxes/boxWidgetSettings/BoxWidgetSettings.js",
+      "implements/src/core/Widget.js",
+      "implements/src/widgets/datatableWidget/DatatableWidget.js",
+      "implements/src/widgets/PieChart.js",
+      "implements/src/widgets/DoughnutChart.js",
+      "implements/src/widgets/LineChart.js",
+      "implements/src/widgets/BarChart.js",
+      "implements/src/widgets/ScatterChart.js",
+      "example/src/boxes/boxMain/BoxMain.js",
+      "example/src/boxes/boxHeader/BoxHeader.js",
+      "example/src/boxes/boxMenu/BoxMenu.js",
+      "example/src/boxes/boxDashboard/BoxDashboard.js",
+      "example/src/boxes/boxSettings/BoxSettings.js",
+      "example/src/boxes/boxButtons/BoxButtons.js",
+      "example/src/elements/menuElement/MenuElement.js",
+      "example/src/elements/buttonElement/ButtonElement.js",
+      "implements/src/elements/settingWidgetElement/SettingWidgetElement.js",
+      "example/src/core/Project.js"
+    ],
+    "templates": [
+      "example/src/boxes/boxMain/BoxMain.tpl.html",
+      "example/src/boxes/boxHeader/BoxHeader.tpl.html",
+      "example/src/boxes/boxDashboard/BoxDashboard.tpl.html",
+      "example/src/boxes/boxSettings/BoxSettings.tpl.html",
+      "example/src/boxes/boxButtons/BoxButtons.tpl.html",
+      "implements/src/boxes/boxWidgetSettings/BoxWidgetSettings.tpl.html",
+      "example/src/boxes/boxMenu/BoxMenu.tpl.html",
+      "example/src/elements/menuElement/MenuElement.tpl.html",
+      "example/src/elements/buttonElement/ButtonElement.tpl.html",
+      "implements/src/elements/settingWidgetElement/SettingWidgetElement.tpl.html",
+      "implements/src/widgets/datatableWidget/DatatableWidget.tpl.html"
+    ]
+  },
+  "test-implements": {
+    "filesJs": [
+      "implements/coverage/core/Dashboard.js",
+      "implements/coverage/core/Widget.js",
+      "implements/coverage/widgets/BarChart.js",
+      "implements/coverage/widgets/PieChart.js",
+      "implements/src/widgets/DoughnutChart.js",
+      "implements/src/widgets/LineChart.js",
+      "implements/coverage/widgets/ScatterChart.js",
+      "implements/coverage/services/connectionManager/ConnectionManager.js"
+    ],
+    "filesTests": [
+      "implements/test/core/Dashboard.test.js",
+      "implements/test/core/Widget.test.js",
+      "implements/test/widgets/BarChart.test.js",
+      "implements/test/widgets/PieChart.test.js",
+      "implements/src/widgets/LineChart.js",
+      "implements/src/widgets/DoughnutChart.js",
+      "implements/test/widgets/ScatterChart.test.js",
+      "implements/test/services/connectionManager/ConnectionManager.test.js"
+    ]
+  },
+  "implements": {
+    "filesCSS": [
+      "implements/src/core/css/Widget.css",
+      "implements/src/boxes/boxWidgetSettings/BoxWidgetSettings.css",
+      "implements/src/elements/settingWidgetElement/SettingWidgetElement.css",
+      "implements/src/widgets/datatableWidget/Datatable.css"
+    ],
+    "filesJS": [
+      "implements/src/core/Dashboard.js",
+      "implements/src/core/Widget.js",
+      "implements/src/boxes/boxWidgetSettings/BoxWidgetSettings.js",
+      "implements/src/elements/settingWidgetElement/SettingWidgetElement.js",
+      "implements/src/widgets/PieChart.js",
+      "implements/src/widgets/BarChart.js",
+      "implements/src/widgets/DoughnutChart.js",
+      "implements/src/widgets/LineChart.js",
+      "implements/src/widgets/ScatterChart.js",
+      "implements/src/widgets/datatableWidget/DatatableWidget.js"
+    ],
+    "templates": [
+      "implements/src/boxes/boxWidgetSettings/BoxWidgetSettings.tpl.html",
+      "implements/src/elements/settingWidgetElement/SettingWidgetElement.tpl.html",
+      "implements/src/widgets/datatableWidget/DatatableWidget.tpl.html"
+    ]
+  }
+}

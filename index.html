@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css"/>
+    <link rel="stylesheet" href="../../node_modules/jquery/dist/jquery.js"/>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/sinon-chai/lib/sinon-chai.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+
+</head>
+<body>
+
+<script type='text/template' id='tpl-dashboard-layout'>
+    <div class="gridStack">
+    </div>
+</script>
+
+
+<script src="js/OneFlux.js"></script>
+<script src="js/Implements.js"></script>
+
+<div id="mocha"></div>
+<div id="test"></div>
+
+<script>
+    mocha.setup('bdd');   //2
+    mocha.reporter('html'); // 3
+    var expect = chai.expect;
+</script>
+
+<!-- inject:tests:js -->
+<script src="../test/boxes/boxDashboard/BoxDashboard.test.js"></script>
+<script src="../test/boxes/boxHeader/BoxHeader.test.js"></script>
+<script src="../test/boxes/boxMain/BoxMain.test.js"></script>
+<!-- endinject -->
+
+<script>
+    mocha.run()
+</script>
+
+</body>
+</html>

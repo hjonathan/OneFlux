@@ -1,0 +1,10 @@
+/node_modules
+/kernelFlux/dist/
+/coverage
+/implements/coverage
+/implements/build
+/implements/testBuild
+.idea
+/example/coverage
+/example/build
+/example/testBuild
