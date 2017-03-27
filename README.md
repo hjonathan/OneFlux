@@ -1,6 +1,7 @@
 
 
 # ONEFLUX
+One God, One Way, One Flow
 OneFlux is a framework that structures applications by providing
 - **Abstract components** - that communicate through events in a hierarchical way
 - **Modules / services** - that communicate via an Event Bus
