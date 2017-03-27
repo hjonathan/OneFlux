@@ -2,6 +2,7 @@
 
 # ONEFLUX
 One God, One Way, One Flow
+
 OneFlux is a framework that structures applications by providing
 - **Abstract components** - that communicate through events in a hierarchical way
 - **Modules / services** - that communicate via an Event Bus
@@ -61,4 +62,4 @@ var FormManager = function (EventBus, options) {
 ```
 
 ### EventBus
-For more Information about Evetn Bus see postal js
+For more Information about Event Bus see postal js
