@@ -90,7 +90,7 @@ var OneFlux = {
         var one;
         if (alias && obj) {
             one = function (params) {
-                this.initOne.apply(this, params);
+                return this.initOne.apply(this, params);
             };
             _.extend(one.prototype, _.isObject(obj.prototype) ? obj.prototype : {});
             one.prototype.initOne = obj.prototype.constructor ? obj.prototype.constructor : new Function();
