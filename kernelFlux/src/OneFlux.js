@@ -1,6 +1,7 @@
 const _ = require("lodash"),
     postal = require("postal"),
     Comp = require("./ComponentBase"),
+    xNgel = require("./xNgel"),
     Cont = require("./ContainerBase");
 
 
@@ -166,6 +167,10 @@ var OneFlux = {
 
 OneFlux.service("_", _);
 OneFlux.service("EventBus", postal);
+OneFlux.service("xNgel", new xNgel({
+    eventBus: postal
+}));
+
 
 module.exports = OneFlux;
 if (process.title === "browser") {

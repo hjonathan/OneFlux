@@ -3,23 +3,24 @@ const _ = require("lodash"),
     uuid = require('node-uuid'),
     Emitter = new Event.EventEmitter();
 
-var ActionBus = function (options) {
-    ActionBus.prototype.init.call(this, options);
+/**
+ * Based in Postal js, xNgel is an advanced eventBus
+ */
+var xNgel = function (options) {
+    xNgel.prototype.init.call(this, options);
 };
 
-_.extend(ActionBus.prototype, Emitter);
-_.extend(ActionBus.prototype, {
+_.extend(xNgel.prototype, Emitter);
+_.extend(xNgel.prototype, {
     init: function (options) {
 
     },
-    subscribe: function (action, callback) {
-        this.on(action, callback);
-        return this;
+    publish: function (){
+
     },
-    dispatch: function (action, data) {
-        this.emit(action, data);
-        return this;
+    subscribe: function (){
+
     }
 });
 
-module.exports = ActionBus;
+module.exports = xNgel;
