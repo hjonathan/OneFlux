@@ -20,7 +20,16 @@ const _ = require("lodash"),
  *    }
  * });
  *
- * waitFor Subscribe
+ * Subscribe Serial
+ * eventBus.subscribe({
+ *      channel: "orders",
+ *      serial: "0000000000000001",
+ *      topic: "item.add",
+ *      callback: function(data, envelope) {
+ *    }
+ * });
+ *
+ *
  * waitFor Subscribe
  * this.waitFor({
  * events : [
@@ -35,7 +44,6 @@ const _ = require("lodash"),
  *  ],
  * callback : function (){
  *  }
-
  */
 
 /**
@@ -44,6 +52,7 @@ const _ = require("lodash"),
 var xNgel = function (options) {
     this.eventBus = null;
     this.collectionWaitFor = [];
+    this.collectionSerialize = {};
     xNgel.prototype.init.call(this, options);
 };
 
@@ -57,9 +66,54 @@ _.extend(xNgel.prototype, {
         return this.eventBus.publish(config);
     },
     subscribe: function (config) {
-        return this.eventBus.subscribe(config);
+        if (_.isObject(config) && config.serial) {
+            this.addCollectionSerialize(config);
+        } else {
+            return this.eventBus.subscribe(config);
+        }
     },
-    /**
+    addCollectionSerialize: function (config) {
+        var obj = this.collectionSerialize;
+        if (!_.isObject(obj[config.channel])) {
+            obj[config.channel] = {};
+        }
+        if (!_.isObject(obj[config.channel][config.topic])) {
+            obj[config.channel][config.topic] = {};
+            this.addSerializeChannel(config);
+        }
+        if (!_.isObject(obj[config.channel][config.topic][config.serial])) {
+            obj[config.channel][config.topic][config.serial] = {};
+        }
+        obj[config.channel][config.topic][config.serial] = config;
+        return this;
+    },
+    addSerializeChannel: function (config) {
+        var nconf = {},
+            callback = this.handlerSerialize();
+        _.extend(nconf, config);
+        nconf.callback = callback;
+        this.eventBus.subscribe(nconf);
+    },
+    handlerSerialize: function () {
+        var that = this;
+        return function (data, envelope) {
+            if (envelope.serial) {
+                that.executeSerialize(data, envelope);
+            }
+        };
+    },
+    executeSerialize: function (data, env) {
+        var handler,
+            obj = this.collectionSerialize;
+        if (obj[env.channel] && obj[env.channel][env.topic] && obj[env.channel][env.topic][env.serial]) {
+            if (_.isFunction(obj[env.channel][env.topic][env.serial].callback)) {
+                handler = obj[env.channel][env.topic][env.serial].callback;
+                handler(data, env);
+                delete obj[env.channel][env.topic][env.serial];
+            }
+        }
+    },
+    /**º
      * WaitFor generals
      * @param config
      */
@@ -101,14 +155,18 @@ _.extend(xNgel.prototype, {
             });
 
             _.each(evs, function (evss) {
-                    if (_.isFunction(evss.callback)) {
-                        evss.callback(evss.events);
-                    }
+                    var nEvs = [];
                     _.each(evss.events, function (evr, index) {
-                        if (evr && !evr.hasOwnProperty("data")) {
+                        nEvs.push(_.extend({}, evr));
+                        if (evr && evr.hasOwnProperty("data")) {
                             delete evr.data;
                         }
                     });
+
+                    if (_.isFunction(evss.callback)) {
+                        evss.callback(nEvs);
+                    }
+
                 }
             );
         };
